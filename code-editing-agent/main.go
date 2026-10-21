@@ -258,7 +258,7 @@ func (a *Agent) Run(ctx context.Context) error {
 		for _, content := range message.Content {
 			switch content.Type {
 			case "text":
-				fmt.Printf("\u001b[93mClaude\u001b[0m: %s\n", content.Text)
+				fmt.Printf("\u001b[93mClyppi\u001b[0m: %s\n", content.Text)
 			case "tool_use":
 				result := a.executeTool(content.ID, content.Name, content.Input)
 				toolResults = append(toolResults, result)
