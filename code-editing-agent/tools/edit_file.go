@@ -10,7 +10,7 @@ import (
 
 var EditFileDefinition = ToolDefinition{
 	Name: "edit_file",
-	Description: `Make edits to a text file.
+	Description: `Make edits to a text file. old_str and new_str cannot be the same. If you are creating a new file, you should just put SOMETHING in new string, and leave old_str "", and then overwrite that afterwards.
 
 Replaces 'old_str' with 'new_str' in the given file. 'old_str' and 'new_str' MUST be different from each other. DO NOT OMIT THE NEW_STR OKAY!?
 
