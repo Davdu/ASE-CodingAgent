@@ -11,6 +11,8 @@ We also mad ethe agent implement a feature, where it logs conversations to the d
 
 Give the agent the ability to run go programs. First we decided that it should run go programs, but then thoughts like "Can it cancel the program with ctrl-c", and "What happens if it goes unresponsive" came. We decided that we also wanted to run JS programs, so we added the ability for the agent to chose between Go and Node itself when executing programs. We also add that it can supply arguments to the program invocation, such that it can write more sophisticated programs.
 
+We had some funny interactions with it, but it can actually implement tower of hanoi, and run it through several times.
+
 `\u001b[94mYou\u001b[0m: Alright so you have to work in a loop, using the given commands to implement a small program. you have to run it, test the output and then edit the fil
 e until you are satisfied. Create a node.js tower of hanoi that bootstraps the inptu inside of the program, and then solves the problem. you should not stop iterating until yo
 u are done
