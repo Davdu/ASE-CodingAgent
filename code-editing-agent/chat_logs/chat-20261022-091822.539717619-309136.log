@@ -1,0 +1,3 @@
+[2026-10-22T09:18:22.539809042+02:00] system: chat session started
+[2026-10-22T09:18:23.250260142+02:00] user: HI
+[2026-10-22T09:18:24.536871417+02:00] assistant: Hi! How can I help you today? I can read, edit, and list files in your working directory, and run Go or Node programs.
