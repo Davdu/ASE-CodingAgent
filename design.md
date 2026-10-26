@@ -7,6 +7,14 @@ We cleaned up the code structure by extracting tools into its own submodule `too
 We had the agent rewrite the go program to also output the output of functions with the `console` terminal label.
 We also mad ethe agent implement a feature, where it logs conversations to the disc so we can laugh over the wierd chats
 
+In the last session where created the `create_file` tool, the agent managed to create a JS version of game of life, write 2 tests, and then iterate on the code once i saw that the tests failed. It also tested the program by running it, then in the end being satisfied with the game, it stopped.
+
+## Dedictated create file
+
+Right now the agent is having a really hard time creating new files, since it cannot fathom the parameters of the edit file tool, and keeps ommitting arguments.
+Giving it a create file tool would probably make it more obvious for the agent, how to create a file, instead of spending many, many loops on calling the edit file command
+with the wrong arguments.
+
 ## Run program DONE
 
 Give the agent the ability to run go programs. First we decided that it should run go programs, but then thoughts like "Can it cancel the program with ctrl-c", and "What happens if it goes unresponsive" came. We decided that we also wanted to run JS programs, so we added the ability for the agent to chose between Go and Node itself when executing programs. We also add that it can supply arguments to the program invocation, such that it can write more sophisticated programs.

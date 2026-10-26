@@ -2,3 +2,4 @@
 |--------|-------------|--------------|--------------------|-----------------------------|------------------------|
 | 19 oct | 12:00-13:30 | Mads, Mikkel, Casper     | Can't see / $0.10  | Ran through entire Go tutorial for basic agent | Golang, Claude had a hard time using the tools, and did not comprehend why editing files without "new_str" did in fact not edit anything |
 | 21 oct | 12:00-14:00 | Mads, Mikkel, Casper     | Can't see / $0.14  | Extended the tool with ability to run node and go programs with provided input parameters | Tool has trouble creating files since it throws a excpetion when old_str = new_str |
+| 21 oct | 8:30:00-10:00 | Mads, Mikkel, Casper     | Can't see / $0.14  | Created dedicated create file tool, since models a have a hard time using edit_file for this purpose. | Haiku 5.5 has a REALLY tought time fathoming that it should include a new_str when editing a file. Upgraded model |
