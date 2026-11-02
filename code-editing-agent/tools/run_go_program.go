@@ -7,7 +7,7 @@ import (
 
 var RunProgramDefinition = ToolDefinition{
 	Name:        "run_program",
-	Description: "Run a program based on the relative filepath on the local filesystem You must yourself append the ./. Use when you want to execute a go program, or capture the output for further validation and/or testing. Options are either \"go\" or \"node\" and NOTHING else",
+	Description: "Run a program based on the relative filepath on the local filesystem You must yourself append the ./. Use when you want to execute a go program, or capture the output for further validation and/or testing. Options are either \"go\", \"python3\" or \"node\" and NOTHING else",
 	InputSchema: RunProgramSchema,
 	Function:    RunProgram,
 }
