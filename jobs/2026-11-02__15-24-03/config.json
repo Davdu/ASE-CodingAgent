@@ -1,0 +1,15 @@
+{
+    "job_name": "2026-11-02__15-24-03",
+    "agents": [
+        {
+            "name": "go_agent:Clippy"
+        }
+    ],
+    "datasets": [
+        {
+            "name": "terminal-bench/terminal-bench",
+            "ref": "sha256:39d9f44b40420cde8fdcc087579c0d72a7e14fa3656d603c3f0d22fb35e27732",
+            "n_tasks": 5
+        }
+    ]
+}
