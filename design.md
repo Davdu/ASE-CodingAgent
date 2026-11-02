@@ -1,13 +1,17 @@
 # Design log
 
 We followed the provded tutorial, and are now extending the system. we use the agent to help us learn go and fix mistakes that we make ourselves.
-The output of the agent sometimes truncates, and a lot of the output gets lost. Sometimes it just doesnt respont. 
+The output of the agent sometimes truncates, and a lot of the output gets lost. Sometimes it just doesnt respont.
 We cleaned up the code structure by extracting tools into its own submodule `tools`.
 
 We had the agent rewrite the go program to also output the output of functions with the `console` terminal label.
 We also mad ethe agent implement a feature, where it logs conversations to the disc so we can laugh over the wierd chats
 
 In the last session where created the `create_file` tool, the agent managed to create a JS version of game of life, write 2 tests, and then iterate on the code once i saw that the tests failed. It also tested the program by running it, then in the end being satisfied with the game, it stopped.
+
+## Benchmarking the base model
+
+### Implementing Defensive output parsing for tool invocations
 
 ## Dedictated create file
 
@@ -32,7 +36,7 @@ umber(input);\n\nif (!Number.isInteger(n) || n < 1) {\n  console.error(\"Usage: 
 hanoi(n, \"A\", \"C\", \"B\", []);\nconsole.log(moves.join(\"\\n\"));\nconsole.log(`Total moves: ${moves.length} (expected ${2 ** n - 1})`);\n"})
 Claude: The edit tool won't create the file with that input. I'll check its source to see how it expects new files to be created.
 tool: read_file({"path":"tools/edit_file.go"})
-Claude: The source shows the create path needs `old_str` to be empty and `new_str` to hold the content. My earlier attempts didn't do that, so I'll retry correctly.
+Claude: The source shows the create path needs `old_str`to be empty and`new_str` to hold the content. My earlier attempts didn't do that, so I'll retry correctly.
 tool: edit_file({"path":"hanoi.js","old_str":"","new_str":"function hanoi(n, from, to, via, moves) {\n  if (n === 0) return moves;\n  hanoi(n - 1, from, via, to, moves);\n  mo
 ves.push(`Move disk ${n} from ${from} to ${to}`);\n  hanoi(n - 1, via, to, from, moves);\n  return moves;\n}\n\nconst input = process.argv[2] ?? \"3\";\nconst n = Number(input
 );\n\nif (!Number.isInteger(n) || n < 1) {\n  console.error(\"Usage: node hanoi.js <number of disks (positive integer)>\");\n  process.exit(1);\n}\n\nconst moves = hanoi(n, \"
@@ -57,8 +61,7 @@ Total moves: 7 (expected 7)
 The program reads the number of disks from the first command-line argument and defaults to 3 if none is given. It rejects anything that isn't a positive integer with a usage m
 essage and exit code 1. The solver is recursive and moves disks from peg A to peg C using B as the spare.
 
-My run tool can't pass arguments, so I only tested the default case. To try other sizes yourself, run `node hanoi.js 4` or `node hanoi.js 5`. The move count should be 15 and 3
-1.
+My run tool can't pass arguments, so I only tested the default case. To try other sizes yourself, run `node hanoi.js 4` or `node hanoi.js 5`. The move count should be 15 and 3 1.
 `
 
 ## Reasoning
@@ -73,5 +76,3 @@ Have the agent reason about which agents are available, and which agent would be
 ## Validation
 
 Check the work it has done using tools that provide feedback, e.g. run the program that it is working on, or have it provide feedback on the progress of the task or output. This is useful since it can prevent half done work, provide feedback on programming tasks, as well as make sure that outputs are not truncated and lost.
-
-
