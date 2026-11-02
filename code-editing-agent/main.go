@@ -1,6 +1,7 @@
 package main
 
 import (
+	"agent/tools"
 	"bufio"
 	"context"
 	"encoding/json"
@@ -8,9 +9,10 @@ import (
 	"os"
 	"path"
 	"path/filepath"
+	"strings"
 	"sync"
 	"time"
-	"agent/tools"
+
 	"github.com/anthropics/anthropic-sdk-go"
 )
 
@@ -62,17 +64,32 @@ var EditFileInputSchema = tools.GenerateSchema[EditFileInput]()
 func main() {
 	client := anthropic.NewClient()
 
-	scanner := bufio.NewScanner(os.Stdin)
-	getUserMessage := func() (string, bool) {
-		if !scanner.Scan() {
-			return "", false
+	var getUserMessage func() (string, bool)
+	if len(os.Args) > 1 {
+		// One-shot mode: ./agent "do the task"
+		prompt := strings.Join(os.Args[1:], " ")
+		sent := false
+		getUserMessage = func() (string, bool) {
+			if sent {
+				return "", false
+			}
+			sent = true
+			return prompt, true
 		}
-		return scanner.Text(), true
+	} else {
+		// Interactive chat mode, same as before
+		scanner := bufio.NewScanner(os.Stdin)
+		getUserMessage = func() (string, bool) {
+			if !scanner.Scan() {
+				return "", false
+			}
+			return scanner.Text(), true
+		}
 	}
 
 	tools := []tools.ToolDefinition{
-		tools.ReadFileDefinition, 
-		tools.ListFilesDefinition, 
+		tools.ReadFileDefinition,
+		tools.ListFilesDefinition,
 		tools.EditFileDefinition,
 		tools.RunProgramDefinition,
 		tools.CreateFileDefinition,
@@ -82,6 +99,7 @@ func main() {
 	err := agent.Run(context.TODO())
 	if err != nil {
 		fmt.Printf("Error: %s\n", err.Error())
+		os.Exit(1)
 	}
 }
 
@@ -226,7 +244,7 @@ func (a *Agent) runInference(ctx context.Context, conversation []anthropic.Messa
 
 	message, err := a.client.Messages.New(ctx, anthropic.MessageNewParams{
 		Model:     anthropic.BetaManagedAgentsModelClaudeSonnet5_5,
-		MaxTokens: int64(1024),
+		MaxTokens: int64(16384),
 		Messages:  conversation,
 		Tools:     anthropicTools,
 	})

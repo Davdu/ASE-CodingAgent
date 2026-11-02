@@ -12,7 +12,7 @@ BINARY = Path(__file__).parent / "build" / "agent"
 REMOTE_PATH = "/usr/local/bin/agent"
 
 # API keys to forward from your shell into the container (only those that are set).
-FORWARD_ENV = ["ANTHROPIC_API_KEY"]
+FORWARD_ENV = ["ANTHROPIC_API_KEY", "OPENAI_API_KEY", "OPENROUTER_API_KEY"]
 
 
 class Clippy(BaseAgent):
@@ -41,6 +41,11 @@ class Clippy(BaseAgent):
             f"{REMOTE_PATH} {shlex.quote(instruction)}",
             env=env,
         )
-        context.exit_code = result.return_code
+        # This Harbor version's AgentContext has no exit_code/error_message fields,
+        # so surface failures as an exception (shows up in the trial's Exception tab).
         if result.return_code != 0:
-            context.error_message = (result.stderr or "")[-2000:]
+            raise RuntimeError(
+                f"agent exited with code {result.return_code}\n"
+                f"--- stdout (tail) ---\n{(result.stdout or '')[-2000:]}\n"
+                f"--- stderr (tail) ---\n{(result.stderr or '')[-2000:]}"
+            )

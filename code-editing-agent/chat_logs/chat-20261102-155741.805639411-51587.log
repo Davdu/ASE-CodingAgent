@@ -1,0 +1,11 @@
+[2026-11-02T15:57:41.805714541+01:00] system: chat session started
+[2026-11-02T15:57:48.393836003+01:00] user: Hi there, whats you token limit?
+[2026-11-02T15:57:49.636909526+01:00] error: inference failed: no Anthropic credentials found. The SDK tried these sources in order:
+  1. ANTHROPIC_API_KEY env var: not set
+  2. ANTHROPIC_AUTH_TOKEN env var: not set
+  3. env federation (ANTHROPIC_FEDERATION_RULE_ID + ANTHROPIC_ORGANIZATION_ID + ANTHROPIC_IDENTITY_TOKEN_FILE): not set
+  4. profile config file: not found (run `ant auth login` to create one)
+To fix:
+  - run `ant auth login` to interactively authenticate, or
+  - set ANTHROPIC_API_KEY, or
+  - configure workload identity federation with ANTHROPIC_FEDERATION_RULE_ID, ANTHROPIC_ORGANIZATION_ID, and ANTHROPIC_IDENTITY_TOKEN_FILE

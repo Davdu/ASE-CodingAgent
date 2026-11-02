@@ -23,3 +23,9 @@ Install harbor into the invironment:
 ```python3
 pip install harbor
 ```
+
+### Run benchmarks
+
+```bash
+./benchmark.sh
+```

@@ -9,7 +9,7 @@ pip install -q harbor
 
 # Run on 5 tasks first
 PYTHONPATH=. harbor run \
-  -d terminal-bench/terminal-bench \
+  -d aider/aider-polyglot \
   --agent go_agent:Clippy \
-  -l 5
+  -l 30
 
