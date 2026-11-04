@@ -1,0 +1,13 @@
+{
+    "task": {
+        "name": "aider/polyglot_python_pig-latin",
+        "ref": "sha256:721e7cefcc8f45e219e097b15b3c53b7e5cefa3706f456f9362d3ebe4d7c8d15",
+        "source": "aider/aider-polyglot"
+    },
+    "trial_name": "polyglot_python_pig-latin__EaMG8qs",
+    "trials_dir": "jobs/2026-11-04__10-47-44",
+    "agent": {
+        "name": "go_agent:Clippy"
+    },
+    "job_id": "8f8752bc-a225-4f6d-a578-166cb22f23c7"
+}

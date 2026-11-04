@@ -1,0 +1,13 @@
+{
+    "task": {
+        "name": "aider/polyglot_cpp_space-age",
+        "ref": "sha256:5b96f4afa098fe5aea88cd86a80eac598f0303f6776328101684884214df421c",
+        "source": "aider/aider-polyglot"
+    },
+    "trial_name": "polyglot_cpp_space-age__oK2wfM6",
+    "trials_dir": "jobs/2026-11-04__10-22-36",
+    "agent": {
+        "name": "go_agent:Clippy"
+    },
+    "job_id": "2fb84b55-0f11-4e99-b0d1-10b1b0484e85"
+}

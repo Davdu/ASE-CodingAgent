@@ -1,0 +1,13 @@
+{
+    "task": {
+        "name": "aider/polyglot_go_error-handling",
+        "ref": "sha256:f0b69d2af74c8447fde3196ab678fae984a9f6b342fee711bba174cd015db064",
+        "source": "aider/aider-polyglot"
+    },
+    "trial_name": "polyglot_go_error-handling__ezfeErH",
+    "trials_dir": "jobs/2026-11-04__10-37-46",
+    "agent": {
+        "name": "go_agent:Clippy"
+    },
+    "job_id": "ab2d0b0f-2bbf-4733-a143-2b24b4ff5aa5"
+}

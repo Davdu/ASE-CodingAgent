@@ -1,0 +1,13 @@
+{
+    "task": {
+        "name": "aider/polyglot_go_palindrome-products",
+        "ref": "sha256:8a2729764f9ccf49575d7286b70d36c768844634ae4ee1eb2e76b761d84d0ae2",
+        "source": "aider/aider-polyglot"
+    },
+    "trial_name": "polyglot_go_palindrome-products__kM8QEBh",
+    "trials_dir": "jobs/2026-11-04__10-47-44",
+    "agent": {
+        "name": "go_agent:Clippy"
+    },
+    "job_id": "8f8752bc-a225-4f6d-a578-166cb22f23c7"
+}

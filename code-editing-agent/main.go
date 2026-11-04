@@ -7,7 +7,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
-	"path"
 	"path/filepath"
 	"strings"
 	"sync"
@@ -36,31 +35,6 @@ func NewAgent(
 	}
 }
 
-func createNewFile(filePath, content string) (string, error) {
-	dir := path.Dir(filePath)
-	if dir != "." {
-		err := os.MkdirAll(dir, 0755)
-		if err != nil {
-			return "", fmt.Errorf("failed to create directory: %w", err)
-		}
-	}
-
-	err := os.WriteFile(filePath, []byte(content), 0644)
-	if err != nil {
-		return "", fmt.Errorf("failed to create file: %w", err)
-	}
-
-	return fmt.Sprintf("Successfully created file %s", filePath), nil
-}
-
-type EditFileInput struct {
-	Path   string `json:"path" jsonschema_description:"The path to the file"`
-	OldStr string `json:"old_str" jsonschema_description:"Text to search for - must match exactly and must only have one match exactly"`
-	NewStr string `json:"new_str" jsonschema_description:"Text to replace old_str with"`
-}
-
-var EditFileInputSchema = tools.GenerateSchema[EditFileInput]()
-
 func main() {
 	client := anthropic.NewClient()
 
@@ -87,12 +61,25 @@ func main() {
 		}
 	}
 
+	// Remember what the user asked, so the reviewer sees the original problem and not just the agent's retelling.
+	userMessages := []string{}
+	readUserMessage := getUserMessage
+	getUserMessage = func() (string, bool) {
+		message, ok := readUserMessage()
+		if ok {
+			userMessages = append(userMessages, message)
+		}
+		return message, ok
+	}
+	getProblem := func() string { return strings.Join(userMessages, "\n\n") }
+
 	tools := []tools.ToolDefinition{
 		tools.ReadFileDefinition,
 		tools.ListFilesDefinition,
 		tools.EditFileDefinition,
 		tools.RunProgramDefinition,
 		tools.CreateFileDefinition,
+		tools.NewReviewWorkDefinition(&client, getProblem),
 	}
 	agent := NewAgent(&client, getUserMessage, tools)
 
@@ -230,6 +217,10 @@ func (a *Agent) executeTool(id, name string, input json.RawMessage) anthropic.Co
 	return anthropic.NewToolResultBlock(id, response, false)
 }
 
+const systemPrompt = `You are a coding agent that solves programming tasks by reading, creating, editing and running files.
+When you feel finished with coding, always get your work reviewed with the review_work tool before you stop.
+If the reviewer answers "CHANGES NEEDED", fix the problems and ask for a new review. Stop once the reviewer answers "APPROVED", or after at most 3 reviews.`
+
 func (a *Agent) runInference(ctx context.Context, conversation []anthropic.MessageParam) (*anthropic.Message, error) {
 	anthropicTools := []anthropic.ToolUnionParam{}
 	for _, tool := range a.tools {
@@ -245,6 +236,7 @@ func (a *Agent) runInference(ctx context.Context, conversation []anthropic.Messa
 	message, err := a.client.Messages.New(ctx, anthropic.MessageNewParams{
 		Model:     anthropic.BetaManagedAgentsModelClaudeSonnet5_5,
 		MaxTokens: int64(16384),
+		System:    []anthropic.TextBlockParam{{Text: systemPrompt}},
 		Messages:  conversation,
 		Tools:     anthropicTools,
 	})

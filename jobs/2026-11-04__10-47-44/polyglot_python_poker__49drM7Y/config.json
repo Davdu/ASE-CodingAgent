@@ -1,0 +1,13 @@
+{
+    "task": {
+        "name": "aider/polyglot_python_poker",
+        "ref": "sha256:08102fbe156781e652e8671468b7f63a07a52dfc92558286ef389479976cdb99",
+        "source": "aider/aider-polyglot"
+    },
+    "trial_name": "polyglot_python_poker__49drM7Y",
+    "trials_dir": "jobs/2026-11-04__10-47-44",
+    "agent": {
+        "name": "go_agent:Clippy"
+    },
+    "job_id": "8f8752bc-a225-4f6d-a578-166cb22f23c7"
+}

@@ -1,0 +1,72 @@
+=== STARTING TEST EXECUTION ===
+Language: javascript
+Exercise: resistor-color-trio
+Test directory: /tests
+Installing Node.js dependencies...
+npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+npm warn deprecated @humanwhocodes/config-array@0.13.0: Use @eslint/config-array instead
+npm warn deprecated rimraf@3.0.2: Rimraf versions prior to v4 are no longer supported
+npm warn deprecated glob@7.2.3: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
+npm warn deprecated @humanwhocodes/object-schema@2.0.3: Use @eslint/object-schema instead
+npm warn deprecated eslint@8.57.1: This version is no longer supported. Please see https://eslint.org/version-support for other options.
+
+added 578 packages, and audited 579 packages in 32s
+
+136 packages are looking for funding
+  run `npm fund` for details
+
+32 vulnerabilities (4 low, 28 moderate)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+Local Node.js dependencies installed
+Setting up JavaScript environment...
+Running tests for resistor-color-trio (javascript)
+Copying JavaScript test files to workspace...
+Running JavaScript tests...
+
+> test
+> jest ./*
+
+FAIL ./resistor-color-trio.spec.js
+  Resistor Color Trio
+    ✕ Orange and orange and black (5 ms)
+    ○ skipped Blue and grey and brown
+    ○ skipped Red and black and red
+    ○ skipped Green and brown and orange
+    ○ skipped Yellow and violet and yellow
+    ○ skipped Invalid color
+
+  ● Resistor Color Trio › Orange and orange and black
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: "Resistor value: 33 ohms"
+    Received: [Function label]
+
+       7 | describe('Resistor Color Trio', () => {
+       8 |   test('Orange and orange and black', () => {
+    >  9 |     expect(new ResistorColorTrio(['orange', 'orange', 'black']).label).toEqual(
+         |                                                                        ^
+      10 |       makeLabel({ value: 33, unit: 'ohms' }),
+      11 |     );
+      12 |   });
+
+      at Object.toEqual (resistor-color-trio.spec.js:9:72)
+
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 5 skipped, 6 total
+Snapshots:   0 total
+Time:        0.989 s
+Ran all test suites matching /.\/babel.config.js|.\/chat_logs|.\/node_modules|.\/package-lock.json|.\/package.json|.\/resistor-color-trio.js|.\/resistor-color-trio.spec.js/i.
+=== TEST EXECUTION COMPLETED ===
+Exit code: 1
+=============== short test summary info ===============
+FAILED aider_polyglot_test
+✗ Tests failed with exit code: 1
+=== SCRIPT FINISHED ===

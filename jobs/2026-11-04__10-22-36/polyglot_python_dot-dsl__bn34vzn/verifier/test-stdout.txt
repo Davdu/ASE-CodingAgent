@@ -1,0 +1,99 @@
+=== STARTING TEST EXECUTION ===
+Language: python
+Exercise: dot-dsl
+Test directory: /tests
+Installing Python test dependencies...
+Collecting pytest
+  Downloading pytest-9.2.0-py3-none-any.whl.metadata (7.9 kB)
+Collecting iniconfig>=2 (from pytest)
+  Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting packaging>=24 (from pytest)
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pluggy<2,>=1.6 (from pytest)
+  Downloading pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+Collecting pygments>=2.15 (from pytest)
+  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Downloading pytest-9.2.0-py3-none-any.whl (411 kB)
+Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 14.4 MB/s  0:00:00
+Installing collected packages: pygments, pluggy, packaging, iniconfig, pytest
+
+Successfully installed iniconfig-2.3.1 packaging-26.3 pluggy-1.7.0 pygments-2.21.0 pytest-9.2.0
+Python test dependencies installed
+Running tests for dot-dsl (python)
+Copying Python test files to workspace...
+Running Python tests...
+============================= test session starts ==============================
+platform linux -- Python 3.11.18, pytest-9.2.0, pluggy-1.7.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /app
+collecting ... collected 12 items
+
+dot_dsl_test.py::DotDslTest::test_empty_graph PASSED                     [  8%]
+dot_dsl_test.py::DotDslTest::test_graph_with_attributes PASSED           [ 16%]
+dot_dsl_test.py::DotDslTest::test_graph_with_one_attribute PASSED        [ 25%]
+dot_dsl_test.py::DotDslTest::test_graph_with_one_edge PASSED             [ 33%]
+dot_dsl_test.py::DotDslTest::test_graph_with_one_node PASSED             [ 41%]
+dot_dsl_test.py::DotDslTest::test_graph_with_one_node_with_keywords PASSED [ 50%]
+dot_dsl_test.py::DotDslTest::test_malformed_EDGE FAILED                  [ 58%]
+dot_dsl_test.py::DotDslTest::test_malformed_attr FAILED                  [ 66%]
+dot_dsl_test.py::DotDslTest::test_malformed_graph FAILED                 [ 75%]
+dot_dsl_test.py::DotDslTest::test_malformed_graph_item FAILED            [ 83%]
+dot_dsl_test.py::DotDslTest::test_malformed_node FAILED                  [ 91%]
+dot_dsl_test.py::DotDslTest::test_unknown_item FAILED                    [100%]
+
+=================================== FAILURES ===================================
+________________________ DotDslTest.test_malformed_EDGE ________________________
+dot_dsl_test.py:115: in test_malformed_EDGE
+    self.assertEqual(err.exception.args[0], "Edge is malformed")
+E   AssertionError: 'EDGE malformed' != 'Edge is malformed'
+E   - EDGE malformed
+E   + Edge is malformed
+________________________ DotDslTest.test_malformed_attr ________________________
+dot_dsl_test.py:101: in test_malformed_attr
+    self.assertEqual(err.exception.args[0], "Attribute is malformed")
+E   AssertionError: 'ATTR malformed' != 'Attribute is malformed'
+E   - ATTR malformed
+E   + Attribute is malformed
+_______________________ DotDslTest.test_malformed_graph ________________________
+dot_dsl_test.py:77: in test_malformed_graph
+    self.assertEqual(err.exception.args[0], "Graph data malformed")
+E   AssertionError: 'Graph data malformed: expected a list' != 'Graph data malformed'
+E   - Graph data malformed: expected a list
+E   + Graph data malformed
+_____________________ DotDslTest.test_malformed_graph_item _____________________
+dot_dsl_test.py:88: in test_malformed_graph_item
+    self.assertEqual(err.exception.args[0], "Graph item incomplete")
+E   AssertionError: 'Graph item malformed: expected a non-empty tuple' != 'Graph item incomplete'
+E   - Graph item malformed: expected a non-empty tuple
+E   + Graph item incomplete
+________________________ DotDslTest.test_malformed_node ________________________
+dot_dsl_test.py:108: in test_malformed_node
+    self.assertEqual(err.exception.args[0], "Node is malformed")
+E   AssertionError: 'NODE malformed' != 'Node is malformed'
+E   - NODE malformed
+E   + Node is malformed
+_________________________ DotDslTest.test_unknown_item _________________________
+dot_dsl_test.py:121: in test_unknown_item
+    self.assertEqual(err.exception.args[0], "Unknown item")
+E   AssertionError: 'Unknown item type' != 'Unknown item'
+E   - Unknown item type
+E   ?             -----
+E   + Unknown item
+=========================== short test summary info ============================
+FAILED dot_dsl_test.py::DotDslTest::test_malformed_EDGE - AssertionError: 'ED...
+FAILED dot_dsl_test.py::DotDslTest::test_malformed_attr - AssertionError: 'AT...
+FAILED dot_dsl_test.py::DotDslTest::test_malformed_graph - AssertionError: 'G...
+FAILED dot_dsl_test.py::DotDslTest::test_malformed_graph_item - AssertionErro...
+FAILED dot_dsl_test.py::DotDslTest::test_malformed_node - AssertionError: 'NO...
+FAILED dot_dsl_test.py::DotDslTest::test_unknown_item - AssertionError: 'Unkn...
+========================= 6 failed, 6 passed in 0.02s ==========================
+=== TEST EXECUTION COMPLETED ===
+Exit code: 1
+=============== short test summary info ===============
+FAILED aider_polyglot_test
+✗ Tests failed with exit code: 1
+=== SCRIPT FINISHED ===

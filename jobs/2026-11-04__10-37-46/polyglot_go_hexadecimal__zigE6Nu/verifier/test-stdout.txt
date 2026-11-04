@@ -1,0 +1,23 @@
+=== STARTING TEST EXECUTION ===
+Language: go
+Exercise: hexadecimal
+Test directory: /tests
+Downloading Go dependencies...
+go: no module dependencies to download
+Go dependencies downloaded
+Setting up Go test environment...
+Copying Go tests from /tests -> /app
+Copying Go helper sources from /tests -> /app
+Running tests for hexadecimal (go)
+Copying Go test files to workspace...
+Running Go tests...
+# hexadecimal [hexadecimal.test]
+./hexadecimal_test.go:75:8: undefined: HandleErrors
+FAIL	hexadecimal [build failed]
+FAIL
+=== TEST EXECUTION COMPLETED ===
+Exit code: 1
+=============== short test summary info ===============
+FAILED aider_polyglot_test
+✗ Tests failed with exit code: 1
+=== SCRIPT FINISHED ===

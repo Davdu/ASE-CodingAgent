@@ -1,0 +1,13 @@
+{
+    "task": {
+        "name": "aider/polyglot_java_affine-cipher",
+        "ref": "sha256:a7466808812aadf91ac80c70ca6c80fdc9cbb8b71c27a3d6f6804b900b9c551e",
+        "source": "aider/aider-polyglot"
+    },
+    "trial_name": "polyglot_java_affine-cipher__hCiJXD9",
+    "trials_dir": "jobs/2026-11-04__10-37-46",
+    "agent": {
+        "name": "go_agent:Clippy"
+    },
+    "job_id": "ab2d0b0f-2bbf-4733-a143-2b24b4ff5aa5"
+}

@@ -1,0 +1,38 @@
+=== STARTING TEST EXECUTION ===
+Language: cpp
+Exercise: complex-numbers
+Test directory: /tests
+C++: Using system libraries, no additional dependencies needed
+Running tests for complex-numbers (cpp)
+Copying C++ test files to workspace...
+Copying test framework directory (preserving structure)...
+Test files copied successfully
+Building and running C++ tests...
+Using CMake build system...
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /app/build
+[ 25%] Building CXX object CMakeFiles/complex-numbers.dir/complex_numbers_test.cpp.o
+/app/complex_numbers_test.cpp:28:13: warning: ‘void require_approx_equal(const complex_numbers::Complex&, const complex_numbers::Complex&)’ defined but not used [-Wunused-function]
+   28 | static void require_approx_equal(const Complex& lhs, const Complex& rhs) {
+      |             ^~~~~~~~~~~~~~~~~~~~
+[ 50%] Building CXX object CMakeFiles/complex-numbers.dir/complex_numbers.cpp.o
+[ 75%] Building CXX object CMakeFiles/complex-numbers.dir/test/tests-main.cpp.o
+[100%] Linking CXX executable complex-numbers
+[100%] Built target complex-numbers
+===============================================================================
+All tests passed (1 assertion in 1 test case)
+
+[100%] Built target test_complex-numbers
+=== TEST EXECUTION COMPLETED ===
+Exit code: 0
+=============== short test summary info ===============
+PASSED aider_polyglot_test
+✓ All tests passed successfully
+=== SCRIPT FINISHED ===

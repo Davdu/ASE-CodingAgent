@@ -1,0 +1,13 @@
+{
+    "task": {
+        "name": "aider/polyglot_go_octal",
+        "ref": "sha256:612708401c419277261956ead5752f0e54f4d948c655e1204d2b5dfcce5d250b",
+        "source": "aider/aider-polyglot"
+    },
+    "trial_name": "polyglot_go_octal__Tq8K3tG",
+    "trials_dir": "jobs/2026-11-04__10-37-46",
+    "agent": {
+        "name": "go_agent:Clippy"
+    },
+    "job_id": "ab2d0b0f-2bbf-4733-a143-2b24b4ff5aa5"
+}

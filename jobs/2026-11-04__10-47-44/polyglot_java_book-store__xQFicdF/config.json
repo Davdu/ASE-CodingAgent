@@ -1,0 +1,13 @@
+{
+    "task": {
+        "name": "aider/polyglot_java_book-store",
+        "ref": "sha256:0c7404ad11e5b58ff4cadc76d2e5990345a8f33f4ab2ca1167f992c0675c60a8",
+        "source": "aider/aider-polyglot"
+    },
+    "trial_name": "polyglot_java_book-store__xQFicdF",
+    "trials_dir": "jobs/2026-11-04__10-47-44",
+    "agent": {
+        "name": "go_agent:Clippy"
+    },
+    "job_id": "8f8752bc-a225-4f6d-a578-166cb22f23c7"
+}

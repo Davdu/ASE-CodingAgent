@@ -1,0 +1,13 @@
+{
+    "task": {
+        "name": "aider/polyglot_javascript_scale-generator",
+        "ref": "sha256:09f9a91e8bfe7f730e155f26a502e0a7bd7a14458a35aaa621fcef49155b1105",
+        "source": "aider/aider-polyglot"
+    },
+    "trial_name": "polyglot_javascript_scale-genera__ADqumqZ",
+    "trials_dir": "jobs/2026-11-04__10-47-44",
+    "agent": {
+        "name": "go_agent:Clippy"
+    },
+    "job_id": "8f8752bc-a225-4f6d-a578-166cb22f23c7"
+}

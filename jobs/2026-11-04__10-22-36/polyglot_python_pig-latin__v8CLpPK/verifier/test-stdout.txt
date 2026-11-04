@@ -1,0 +1,64 @@
+=== STARTING TEST EXECUTION ===
+Language: python
+Exercise: pig-latin
+Test directory: /tests
+Installing Python test dependencies...
+Collecting pytest
+  Downloading pytest-9.2.0-py3-none-any.whl.metadata (7.9 kB)
+Collecting iniconfig>=2 (from pytest)
+  Downloading iniconfig-2.3.1-py3-none-any.whl.metadata (2.8 kB)
+Collecting packaging>=24 (from pytest)
+  Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+Collecting pluggy<2,>=1.6 (from pytest)
+  Downloading pluggy-1.7.0-py3-none-any.whl.metadata (5.0 kB)
+Collecting pygments>=2.15 (from pytest)
+  Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+Downloading pytest-9.2.0-py3-none-any.whl (411 kB)
+Downloading pluggy-1.7.0-py3-none-any.whl (27 kB)
+Downloading iniconfig-2.3.1-py3-none-any.whl (7.6 kB)
+Downloading packaging-26.3-py3-none-any.whl (129 kB)
+Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 20.0 MB/s  0:00:00
+Installing collected packages: pygments, pluggy, packaging, iniconfig, pytest
+
+Successfully installed iniconfig-2.3.1 packaging-26.3 pluggy-1.7.0 pygments-2.21.0 pytest-9.2.0
+Python test dependencies installed
+Running tests for pig-latin (python)
+Copying Python test files to workspace...
+Running Python tests...
+============================= test session starts ==============================
+platform linux -- Python 3.11.18, pytest-9.2.0, pluggy-1.7.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /app
+collecting ... collected 22 items
+
+pig_latin_test.py::PigLatinTest::test_a_whole_phrase PASSED              [  4%]
+pig_latin_test.py::PigLatinTest::test_word_beginning_with_a PASSED       [  9%]
+pig_latin_test.py::PigLatinTest::test_word_beginning_with_a_vowel_and_followed_by_a_qu PASSED [ 13%]
+pig_latin_test.py::PigLatinTest::test_word_beginning_with_ch PASSED      [ 18%]
+pig_latin_test.py::PigLatinTest::test_word_beginning_with_e PASSED       [ 22%]
+pig_latin_test.py::PigLatinTest::test_word_beginning_with_i PASSED       [ 27%]
+pig_latin_test.py::PigLatinTest::test_word_beginning_with_k PASSED       [ 31%]
+pig_latin_test.py::PigLatinTest::test_word_beginning_with_o PASSED       [ 36%]
+pig_latin_test.py::PigLatinTest::test_word_beginning_with_p PASSED       [ 40%]
+pig_latin_test.py::PigLatinTest::test_word_beginning_with_q_without_a_following_u PASSED [ 45%]
+pig_latin_test.py::PigLatinTest::test_word_beginning_with_qu PASSED      [ 50%]
+pig_latin_test.py::PigLatinTest::test_word_beginning_with_qu_and_a_preceding_consonant PASSED [ 54%]
+pig_latin_test.py::PigLatinTest::test_word_beginning_with_sch PASSED     [ 59%]
+pig_latin_test.py::PigLatinTest::test_word_beginning_with_th PASSED      [ 63%]
+pig_latin_test.py::PigLatinTest::test_word_beginning_with_thr PASSED     [ 68%]
+pig_latin_test.py::PigLatinTest::test_word_beginning_with_u PASSED       [ 72%]
+pig_latin_test.py::PigLatinTest::test_word_beginning_with_x PASSED       [ 77%]
+pig_latin_test.py::PigLatinTest::test_word_beginning_with_xr PASSED      [ 81%]
+pig_latin_test.py::PigLatinTest::test_word_beginning_with_yt PASSED      [ 86%]
+pig_latin_test.py::PigLatinTest::test_y_as_second_letter_in_two_letter_word PASSED [ 90%]
+pig_latin_test.py::PigLatinTest::test_y_is_treated_like_a_consonant_at_the_beginning_of_a_word PASSED [ 95%]
+pig_latin_test.py::PigLatinTest::test_y_is_treated_like_a_vowel_at_the_end_of_a_consonant_cluster PASSED [100%]
+
+============================== 22 passed in 0.01s ==============================
+=== TEST EXECUTION COMPLETED ===
+Exit code: 0
+=============== short test summary info ===============
+PASSED aider_polyglot_test
+✓ All tests passed successfully
+=== SCRIPT FINISHED ===

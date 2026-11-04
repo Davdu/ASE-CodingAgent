@@ -1,0 +1,40 @@
+=== STARTING TEST EXECUTION ===
+Language: cpp
+Exercise: bank-account
+Test directory: /tests
+C++: Using system libraries, no additional dependencies needed
+Running tests for bank-account (cpp)
+Copying C++ test files to workspace...
+Copying test framework directory (preserving structure)...
+Test files copied successfully
+Building and running C++ tests...
+Using CMake build system...
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Looking for C++ include pthread.h
+-- Looking for C++ include pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /app/build
+[ 25%] Building CXX object CMakeFiles/bank-account.dir/bank_account_test.cpp.o
+[ 50%] Building CXX object CMakeFiles/bank-account.dir/bank_account.cpp.o
+[ 75%] Building CXX object CMakeFiles/bank-account.dir/test/tests-main.cpp.o
+[100%] Linking CXX executable bank-account
+[100%] Built target bank-account
+===============================================================================
+All tests passed (1 assertion in 1 test case)
+
+[100%] Built target test_bank-account
+=== TEST EXECUTION COMPLETED ===
+Exit code: 0
+=============== short test summary info ===============
+PASSED aider_polyglot_test
+✓ All tests passed successfully
+=== SCRIPT FINISHED ===

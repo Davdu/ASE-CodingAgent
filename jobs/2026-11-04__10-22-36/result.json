@@ -1,0 +1,70 @@
+{
+    "id": "2fb84b55-0f11-4e99-b0d1-10b1b0484e85",
+    "started_at": "2026-11-04T10:22:40.621063",
+    "updated_at": "2026-11-04T10:30:04.549605",
+    "finished_at": "2026-11-04T10:30:04.549605",
+    "n_total_trials": 30,
+    "stats": {
+        "n_completed_trials": 30,
+        "n_errored_trials": 0,
+        "n_running_trials": 0,
+        "n_pending_trials": 0,
+        "n_cancelled_trials": 0,
+        "n_retries": 0,
+        "evals": {
+            "code-editing-agent__aider/aider-polyglot": {
+                "n_trials": 30,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 0.7333333333333333
+                    }
+                ],
+                "pass_at_k": {},
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "polyglot_java_affine-cipher__KJXKPYn",
+                            "polyglot_go_error-handling__RqCXkyS",
+                            "polyglot_cpp_kindergarten-garden__BsksguU",
+                            "polyglot_cpp_complex-numbers__YJnwDCU",
+                            "polyglot_javascript_scale-genera__QR9RYU3",
+                            "polyglot_python_pig-latin__v8CLpPK",
+                            "polyglot_javascript_rectangles__JH34z5N",
+                            "polyglot_go_sublist__vEfUL5Y",
+                            "polyglot_java_bank-account__kmiZjsj",
+                            "polyglot_cpp_phone-number__KMzRkyd",
+                            "polyglot_python_poker__eGJFpRJ",
+                            "polyglot_cpp_bank-account__zbWFRan",
+                            "polyglot_cpp_space-age__oK2wfM6",
+                            "polyglot_java_mazy-mice__YesBHD8",
+                            "polyglot_java_book-store__oKqRbU2",
+                            "polyglot_python_bowling__6hErdpA",
+                            "polyglot_java_word-search__PMkTDK4",
+                            "polyglot_go_simple-linked-list__9ERVwVw",
+                            "polyglot_go_tree-building__NbbGKWp",
+                            "polyglot_java_food-chain__S9Q4L5e",
+                            "polyglot_python_tree-building__rMDQ2qZ",
+                            "polyglot_go_palindrome-products__uBCDHz3"
+                        ],
+                        "0.0": [
+                            "polyglot_javascript_resistor-col__Xnx3UDv",
+                            "polyglot_python_dot-dsl__bn34vzn",
+                            "polyglot_python_go-counting__VJoAv2u",
+                            "polyglot_java_ocr-numbers__HJPKNx5",
+                            "polyglot_java_zipper__LgALrkp",
+                            "polyglot_rust_xorcism__Ma56Gq9",
+                            "polyglot_go_hexadecimal__RXXq9Uh",
+                            "polyglot_go_octal__YsCoMF5"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        },
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null
+    }
+}

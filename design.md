@@ -13,6 +13,10 @@ In the last session where created the `create_file` tool, the agent managed to c
 
 ### Implementing Defensive output parsing for tool invocations
 
+### LLM-Checking-LLM
+
+It was difficult to get this to work with the benchmark. We added a system prompt telling the agent to review it's code when it feels done.
+
 ## Dedictated create file
 
 Right now the agent is having a really hard time creating new files, since it cannot fathom the parameters of the edit file tool, and keeps ommitting arguments.

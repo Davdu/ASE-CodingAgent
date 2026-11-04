@@ -1,0 +1,13 @@
+{
+    "task": {
+        "name": "aider/polyglot_cpp_phone-number",
+        "ref": "sha256:8bd0fd8316603c443f962e9230dcb0de111606c4e98e602f0785dc6a7d230be6",
+        "source": "aider/aider-polyglot"
+    },
+    "trial_name": "polyglot_cpp_phone-number__SHZ7RD3",
+    "trials_dir": "jobs/2026-11-04__10-47-44",
+    "agent": {
+        "name": "go_agent:Clippy"
+    },
+    "job_id": "8f8752bc-a225-4f6d-a578-166cb22f23c7"
+}

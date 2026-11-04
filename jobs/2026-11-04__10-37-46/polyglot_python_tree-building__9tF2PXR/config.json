@@ -1,0 +1,13 @@
+{
+    "task": {
+        "name": "aider/polyglot_python_tree-building",
+        "ref": "sha256:93056632cee0c15134f7184fd124341ec21be7d3a9dad25e604c9d9d57a9c247",
+        "source": "aider/aider-polyglot"
+    },
+    "trial_name": "polyglot_python_tree-building__9tF2PXR",
+    "trials_dir": "jobs/2026-11-04__10-37-46",
+    "agent": {
+        "name": "go_agent:Clippy"
+    },
+    "job_id": "ab2d0b0f-2bbf-4733-a143-2b24b4ff5aa5"
+}

@@ -1,0 +1,13 @@
+{
+    "task": {
+        "name": "aider/polyglot_java_word-search",
+        "ref": "sha256:703f3ea0d9927f7b7afc03d80df5203d85909f4cc33ff090c65ae9587b050db0",
+        "source": "aider/aider-polyglot"
+    },
+    "trial_name": "polyglot_java_word-search__iyd2xVA",
+    "trials_dir": "jobs/2026-11-04__10-47-44",
+    "agent": {
+        "name": "go_agent:Clippy"
+    },
+    "job_id": "8f8752bc-a225-4f6d-a578-166cb22f23c7"
+}

@@ -1,0 +1,13 @@
+{
+    "task": {
+        "name": "aider/polyglot_java_mazy-mice",
+        "ref": "sha256:64a84e4dae5d4867e0fbd374edc77491ace9a48a15aa14056e4ce7d0b7f1a524",
+        "source": "aider/aider-polyglot"
+    },
+    "trial_name": "polyglot_java_mazy-mice__Ky3e4s2",
+    "trials_dir": "jobs/2026-11-04__10-37-46",
+    "agent": {
+        "name": "go_agent:Clippy"
+    },
+    "job_id": "ab2d0b0f-2bbf-4733-a143-2b24b4ff5aa5"
+}

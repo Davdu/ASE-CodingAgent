@@ -1,0 +1,122 @@
+{
+    "id": "c3cd9657-0bc4-4cfa-abd2-37bdf7cfed81",
+    "task_name": "aider/polyglot_go_simple-linked-list",
+    "trial_name": "polyglot_go_simple-linked-list__ZyaRQHh",
+    "trial_uri": "file:///home/casper/GitHub/ASE-CodingAgent/jobs/2026-11-04__10-47-44/polyglot_go_simple-linked-list__ZyaRQHh",
+    "task_id": {
+        "org": "aider",
+        "name": "polyglot_go_simple-linked-list",
+        "ref": "sha256:e0568b0770916a8a2f6ce317943ab2ba0e0093c01c4ecd4f2a10925845263ebb"
+    },
+    "source": "aider/aider-polyglot",
+    "task_checksum": "206245b24819ae2748e0744dd6d436efc7792f099709785c27a5069705ea9444",
+    "config": {
+        "task": {
+            "path": null,
+            "git_url": null,
+            "git_commit_id": null,
+            "name": "aider/polyglot_go_simple-linked-list",
+            "ref": "sha256:e0568b0770916a8a2f6ce317943ab2ba0e0093c01c4ecd4f2a10925845263ebb",
+            "overwrite": false,
+            "download_dir": null,
+            "source": "aider/aider-polyglot"
+        },
+        "trial_name": "polyglot_go_simple-linked-list__ZyaRQHh",
+        "trials_dir": "jobs/2026-11-04__10-47-44",
+        "install_only": false,
+        "timeout_multiplier": 1.0,
+        "agent_timeout_multiplier": null,
+        "verifier_timeout_multiplier": null,
+        "agent_setup_timeout_multiplier": null,
+        "environment_build_timeout_multiplier": null,
+        "agent": {
+            "name": "go_agent:Clippy",
+            "import_path": null,
+            "model_name": null,
+            "base_url": null,
+            "model_api_key_name": null,
+            "model_api_format": null,
+            "skip_model_parsing": false,
+            "n_concurrent": null,
+            "concurrency_group": null,
+            "skills": [],
+            "override_timeout_sec": null,
+            "override_setup_timeout_sec": null,
+            "max_timeout_sec": null,
+            "resume_trajectory": false,
+            "load_trajectory": null,
+            "extra_allowed_hosts": [],
+            "kwargs": {},
+            "mcp_servers": []
+        },
+        "user_agent": null,
+        "environment": {
+            "type": "docker",
+            "import_path": null,
+            "force_build": false,
+            "delete": true,
+            "stream": false,
+            "cpu_enforcement_policy": "auto",
+            "memory_enforcement_policy": "auto",
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "override_gpus": null,
+            "override_tpu": null,
+            "mounts": null,
+            "extra_docker_compose": [],
+            "kwargs": {},
+            "extra_allowed_hosts": []
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "artifacts": [],
+        "extra_instruction_paths": [],
+        "extra_instructions": [],
+        "job_id": "8f8752bc-a225-4f6d-a578-166cb22f23c7",
+        "source_trial": null
+    },
+    "agent_info": {
+        "name": "code-editing-agent",
+        "version": "0.1",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "model_usage": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "verifier_environment_mode": "shared",
+    "exception_info": null,
+    "started_at": "2026-11-04T09:54:35.768520Z",
+    "finished_at": "2026-11-04T09:55:32.915949Z",
+    "environment_setup": {
+        "started_at": "2026-11-04T09:54:35.771570Z",
+        "finished_at": "2026-11-04T09:54:37.997123Z"
+    },
+    "agent_setup": {
+        "started_at": "2026-11-04T09:54:37.997183Z",
+        "finished_at": "2026-11-04T09:54:38.199826Z"
+    },
+    "agent_execution": {
+        "started_at": "2026-11-04T09:54:38.200030Z",
+        "finished_at": "2026-11-04T09:55:03.945107Z"
+    },
+    "verifier": {
+        "started_at": "2026-11-04T09:55:04.254009Z",
+        "finished_at": "2026-11-04T09:55:22.406524Z"
+    },
+    "step_results": null
+}

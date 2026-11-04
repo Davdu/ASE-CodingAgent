@@ -1,0 +1,59 @@
+=== STARTING TEST EXECUTION ===
+Language: go
+Exercise: sublist
+Test directory: /tests
+Downloading Go dependencies...
+go: no module dependencies to download
+Go dependencies downloaded
+Setting up Go test environment...
+Copying Go tests from /tests -> /app
+Copying Go helper sources from /tests -> /app
+Running tests for sublist (go)
+Copying Go test files to workspace...
+Running Go tests...
+=== RUN   TestSublist
+=== RUN   TestSublist/empty_lists
+=== RUN   TestSublist/empty_list_within_non_empty_list
+=== RUN   TestSublist/non_empty_list_contains_empty_list
+=== RUN   TestSublist/list_equals_itself
+=== RUN   TestSublist/different_lists
+=== RUN   TestSublist/false_start
+=== RUN   TestSublist/consecutive
+=== RUN   TestSublist/sublist_at_start
+=== RUN   TestSublist/sublist_in_middle
+=== RUN   TestSublist/sublist_at_end
+=== RUN   TestSublist/at_start_of_superlist
+=== RUN   TestSublist/in_middle_of_superlist
+=== RUN   TestSublist/at_end_of_superlist
+=== RUN   TestSublist/first_list_missing_element_from_second_list
+=== RUN   TestSublist/second_list_missing_element_from_first_list
+=== RUN   TestSublist/first_list_missing_additional_digits_from_second_list
+=== RUN   TestSublist/order_matters_to_a_list
+=== RUN   TestSublist/same_digits_but_different_numbers
+--- PASS: TestSublist (0.00s)
+    --- PASS: TestSublist/empty_lists (0.00s)
+    --- PASS: TestSublist/empty_list_within_non_empty_list (0.00s)
+    --- PASS: TestSublist/non_empty_list_contains_empty_list (0.00s)
+    --- PASS: TestSublist/list_equals_itself (0.00s)
+    --- PASS: TestSublist/different_lists (0.00s)
+    --- PASS: TestSublist/false_start (0.00s)
+    --- PASS: TestSublist/consecutive (0.00s)
+    --- PASS: TestSublist/sublist_at_start (0.00s)
+    --- PASS: TestSublist/sublist_in_middle (0.00s)
+    --- PASS: TestSublist/sublist_at_end (0.00s)
+    --- PASS: TestSublist/at_start_of_superlist (0.00s)
+    --- PASS: TestSublist/in_middle_of_superlist (0.00s)
+    --- PASS: TestSublist/at_end_of_superlist (0.00s)
+    --- PASS: TestSublist/first_list_missing_element_from_second_list (0.00s)
+    --- PASS: TestSublist/second_list_missing_element_from_first_list (0.00s)
+    --- PASS: TestSublist/first_list_missing_additional_digits_from_second_list (0.00s)
+    --- PASS: TestSublist/order_matters_to_a_list (0.00s)
+    --- PASS: TestSublist/same_digits_but_different_numbers (0.00s)
+PASS
+ok  	sublist	0.002s
+=== TEST EXECUTION COMPLETED ===
+Exit code: 0
+=============== short test summary info ===============
+PASSED aider_polyglot_test
+✓ All tests passed successfully
+=== SCRIPT FINISHED ===

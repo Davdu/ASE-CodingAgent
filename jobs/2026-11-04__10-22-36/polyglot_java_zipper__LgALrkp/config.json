@@ -1,0 +1,13 @@
+{
+    "task": {
+        "name": "aider/polyglot_java_zipper",
+        "ref": "sha256:93e5fe4e4d2405daad2c41ea44f5f0739f34b071d508c9b8415f213f4bc62d4c",
+        "source": "aider/aider-polyglot"
+    },
+    "trial_name": "polyglot_java_zipper__LgALrkp",
+    "trials_dir": "jobs/2026-11-04__10-22-36",
+    "agent": {
+        "name": "go_agent:Clippy"
+    },
+    "job_id": "2fb84b55-0f11-4e99-b0d1-10b1b0484e85"
+}

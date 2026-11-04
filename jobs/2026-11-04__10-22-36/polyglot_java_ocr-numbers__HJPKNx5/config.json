@@ -1,0 +1,13 @@
+{
+    "task": {
+        "name": "aider/polyglot_java_ocr-numbers",
+        "ref": "sha256:8f69db93494556b7f10911964a0b146d1bfee61db92c57d8d7ac45a66fcabe84",
+        "source": "aider/aider-polyglot"
+    },
+    "trial_name": "polyglot_java_ocr-numbers__HJPKNx5",
+    "trials_dir": "jobs/2026-11-04__10-22-36",
+    "agent": {
+        "name": "go_agent:Clippy"
+    },
+    "job_id": "2fb84b55-0f11-4e99-b0d1-10b1b0484e85"
+}

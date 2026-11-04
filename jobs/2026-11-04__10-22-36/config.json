@@ -1,0 +1,15 @@
+{
+    "job_name": "2026-11-04__10-22-36",
+    "agents": [
+        {
+            "name": "go_agent:Clippy"
+        }
+    ],
+    "datasets": [
+        {
+            "name": "aider/aider-polyglot",
+            "ref": "sha256:01e28d85e46beae5b7e29a29f57cb49d882b5486583d52cec4ee5bf3540a1c84",
+            "n_tasks": 30
+        }
+    ]
+}

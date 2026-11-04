@@ -1,0 +1,37 @@
+{
+    "schema_version": 2,
+    "task": {
+        "name": "aider/polyglot_go_simple-linked-list",
+        "type": "package",
+        "digest": "sha256:e0568b0770916a8a2f6ce317943ab2ba0e0093c01c4ecd4f2a10925845263ebb",
+        "source": "aider/aider-polyglot"
+    },
+    "install_only": false,
+    "timeout_multiplier": 1.0,
+    "agent": {
+        "name": "go_agent:Clippy",
+        "skip_model_parsing": false,
+        "skills": [],
+        "resume_trajectory": false,
+        "extra_allowed_hosts": [],
+        "kwargs": {},
+        "mcp_servers": []
+    },
+    "bridge_inputs": {},
+    "skills": [],
+    "environment": {
+        "type": "docker",
+        "force_build": false,
+        "delete": true,
+        "stream": false,
+        "cpu_enforcement_policy": "auto",
+        "memory_enforcement_policy": "auto",
+        "extra_docker_compose": [],
+        "kwargs": {},
+        "extra_allowed_hosts": []
+    },
+    "verifier": {
+        "disable": false,
+        "environment_mode": "shared"
+    }
+}

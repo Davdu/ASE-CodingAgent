@@ -1,0 +1,13 @@
+{
+    "task": {
+        "name": "aider/polyglot_cpp_bank-account",
+        "ref": "sha256:c48fd18aa83de13583331e0f8699b93e19a2391d3ed1754cb931d1dc4e798782",
+        "source": "aider/aider-polyglot"
+    },
+    "trial_name": "polyglot_cpp_bank-account__PVew9RM",
+    "trials_dir": "jobs/2026-11-04__10-47-44",
+    "agent": {
+        "name": "go_agent:Clippy"
+    },
+    "job_id": "8f8752bc-a225-4f6d-a578-166cb22f23c7"
+}

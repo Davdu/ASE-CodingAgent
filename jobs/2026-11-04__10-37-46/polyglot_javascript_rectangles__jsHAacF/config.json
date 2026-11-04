@@ -1,0 +1,13 @@
+{
+    "task": {
+        "name": "aider/polyglot_javascript_rectangles",
+        "ref": "sha256:81707825086b39dae86f02947cd1c0b7a2f4f6e976ea3f962468d81a20e038a0",
+        "source": "aider/aider-polyglot"
+    },
+    "trial_name": "polyglot_javascript_rectangles__jsHAacF",
+    "trials_dir": "jobs/2026-11-04__10-37-46",
+    "agent": {
+        "name": "go_agent:Clippy"
+    },
+    "job_id": "ab2d0b0f-2bbf-4733-a143-2b24b4ff5aa5"
+}

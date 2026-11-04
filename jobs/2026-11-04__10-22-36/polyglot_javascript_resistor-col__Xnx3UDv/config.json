@@ -1,0 +1,13 @@
+{
+    "task": {
+        "name": "aider/polyglot_javascript_resistor-color-trio",
+        "ref": "sha256:801deac0445b1e52a25b611a442d21f695ac1068ac0b4098033ec11adf678384",
+        "source": "aider/aider-polyglot"
+    },
+    "trial_name": "polyglot_javascript_resistor-col__Xnx3UDv",
+    "trials_dir": "jobs/2026-11-04__10-22-36",
+    "agent": {
+        "name": "go_agent:Clippy"
+    },
+    "job_id": "2fb84b55-0f11-4e99-b0d1-10b1b0484e85"
+}
