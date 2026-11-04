@@ -5,6 +5,7 @@ import (
 	"bufio"
 	"context"
 	"encoding/json"
+	"flag"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -17,6 +18,7 @@ import (
 
 type Agent struct {
 	client         *anthropic.Client
+	systemPrompt   string
 	getUserMessage func() (string, bool)
 	tools          []tools.ToolDefinition
 	logger         *ChatLogger // set per chat session in Run
@@ -36,12 +38,20 @@ func NewAgent(
 }
 
 func main() {
+	review := flag.Bool("review", true, "let the agent ask a second LLM to review its work (review_work tool)")
+	flag.Usage = func() {
+		fmt.Fprintf(flag.CommandLine.Output(), "Usage: %s [flags] [--] [prompt]\nWithout a prompt the agent runs as an interactive chat.\n\nFlags:\n", os.Args[0])
+		flag.PrintDefaults()
+	}
+	flag.Parse()
+	tools.Usage.SetFeature("review", *review)
+
 	client := anthropic.NewClient()
 
 	var getUserMessage func() (string, bool)
-	if len(os.Args) > 1 {
-		// One-shot mode: ./agent "do the task"
-		prompt := strings.Join(os.Args[1:], " ")
+	if flag.NArg() > 0 {
+		// One-shot mode: ./agent [flags] [--] "do the task"
+		prompt := strings.Join(flag.Args(), " ")
 		sent := false
 		getUserMessage = func() (string, bool) {
 			if sent {
@@ -73,15 +83,20 @@ func main() {
 	}
 	getProblem := func() string { return strings.Join(userMessages, "\n\n") }
 
-	tools := []tools.ToolDefinition{
+	agentTools := []tools.ToolDefinition{
 		tools.ReadFileDefinition,
 		tools.ListFilesDefinition,
 		tools.EditFileDefinition,
 		tools.RunProgramDefinition,
 		tools.CreateFileDefinition,
-		tools.NewReviewWorkDefinition(&client, getProblem),
 	}
-	agent := NewAgent(&client, getUserMessage, tools)
+	prompt := baseSystemPrompt
+	if *review {
+		agentTools = append(agentTools, tools.NewReviewWorkDefinition(&client, getProblem))
+		prompt += "\n" + reviewSystemPrompt
+	}
+	agent := NewAgent(&client, getUserMessage, agentTools)
+	agent.systemPrompt = prompt
 
 	err := agent.Run(context.TODO())
 	if err != nil {
@@ -98,6 +113,14 @@ func (a *Agent) Run(ctx context.Context) error {
 	defer logger.Close()
 	a.logger = logger
 	fmt.Printf("Chat log: %s\n", logger.file.Name())
+
+	// Write turn count, tokens and cost when the session ends, also if it ends with an error.
+	// AGENT_STATS_FILE overrides where; by default it sits next to the chat log.
+	statsFile := os.Getenv("AGENT_STATS_FILE")
+	if statsFile == "" {
+		statsFile = strings.TrimSuffix(logger.file.Name(), ".log") + ".stats.json"
+	}
+	defer a.writeStats(statsFile)
 
 	conversation := []anthropic.MessageParam{}
 
@@ -122,6 +145,7 @@ func (a *Agent) Run(ctx context.Context) error {
 			a.logger.Log("error", "inference failed: %s", err.Error())
 			return err
 		}
+		tools.Usage.RecordAgent(message.Usage)
 		conversation = append(conversation, message.ToParam())
 
 		toolResults := []anthropic.ContentBlockParamUnion{}
@@ -144,6 +168,21 @@ func (a *Agent) Run(ctx context.Context) error {
 	}
 
 	return nil
+}
+
+// writeStats logs and prints the session's turns, tokens and cost, and writes them to path as JSON.
+func (a *Agent) writeStats(path string) {
+	s := tools.Usage.Stats()
+	summary := fmt.Sprintf("turns=%d (agent %d, reviewer %d) reviews=%d input=%d output=%d cache_read=%d cache_write=%d cost=$%.4f",
+		s.Total.Turns, s.Agent.Turns, s.Reviewer.Turns, s.Reviews,
+		s.Total.InputTokens, s.Total.OutputTokens, s.Total.CacheReadTokens, s.Total.CacheWriteTokens, s.Total.CostUSD)
+	fmt.Printf("Session stats: %s\n", summary)
+	a.logger.Log("stats", "%s", summary)
+	if err := tools.Usage.WriteFile(path); err != nil {
+		fmt.Printf("Error: failed to write stats file: %s\n", err.Error())
+		return
+	}
+	fmt.Printf("Stats file: %s\n", path)
 }
 
 // ChatLogger writes one chat session to its own log file.
@@ -217,8 +256,10 @@ func (a *Agent) executeTool(id, name string, input json.RawMessage) anthropic.Co
 	return anthropic.NewToolResultBlock(id, response, false)
 }
 
-const systemPrompt = `You are a coding agent that solves programming tasks by reading, creating, editing and running files.
-When you feel finished with coding, always get your work reviewed with the review_work tool before you stop.
+const baseSystemPrompt = `You are a coding agent that solves programming tasks by reading, creating, editing and running files.`
+
+// Only added when the review feature is on.
+const reviewSystemPrompt = `When you feel finished with coding, always get your work reviewed with the review_work tool before you stop.
 If the reviewer answers "CHANGES NEEDED", fix the problems and ask for a new review. Stop once the reviewer answers "APPROVED", or after at most 3 reviews.`
 
 func (a *Agent) runInference(ctx context.Context, conversation []anthropic.MessageParam) (*anthropic.Message, error) {
@@ -236,7 +277,7 @@ func (a *Agent) runInference(ctx context.Context, conversation []anthropic.Messa
 	message, err := a.client.Messages.New(ctx, anthropic.MessageNewParams{
 		Model:     anthropic.BetaManagedAgentsModelClaudeSonnet5_5,
 		MaxTokens: int64(16384),
-		System:    []anthropic.TextBlockParam{{Text: systemPrompt}},
+		System:    []anthropic.TextBlockParam{{Text: a.systemPrompt}},
 		Messages:  conversation,
 		Tools:     anthropicTools,
 	})

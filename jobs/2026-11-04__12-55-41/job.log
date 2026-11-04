@@ -1,0 +1,14 @@
+Agent 'code-editing-agent' does not declare an options_model; leftover kwargs are ignored
+Agent 'code-editing-agent' does not declare an options_model; leftover kwargs are ignored
+Agent 'code-editing-agent' does not declare an options_model; leftover kwargs are ignored
+Agent 'code-editing-agent' does not declare an options_model; leftover kwargs are ignored
+Skipping image OS validation for hb__382f2edd68d8bce24e6a86aef857be00: docker inspect returned 1
+Skipping image OS validation for hb__7d7d9020bbd6a674e91dfb792747483e: docker inspect returned 1
+Skipping image OS validation for hb__987c6ed82406451b0b7309c9066ad644: docker inspect returned 1
+Skipping image OS validation for hb__5e0ac6743033b21b3f0f82720361fa28: docker inspect returned 1
+Collecting main service artifacts
+Collecting main service artifacts
+Collecting main service artifacts
+Collecting main service artifacts
+Agent 'code-editing-agent' does not declare an options_model; leftover kwargs are ignored
+Skipping image OS validation for hb__2ba7659b24c9c8ae5183ed128a51b9c8: docker inspect returned 1

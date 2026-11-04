@@ -1,0 +1,13 @@
+{
+    "task": {
+        "name": "aider/polyglot_cpp_kindergarten-garden",
+        "ref": "sha256:b7341670b678f90e93960150778e69b290b7058ee899fa0358a71e4335515d4b",
+        "source": "aider/aider-polyglot"
+    },
+    "trial_name": "polyglot_cpp_kindergarten-garden__PpkFomm",
+    "trials_dir": "jobs/2026-11-04__12-55-41",
+    "agent": {
+        "name": "go_agent:Clippy"
+    },
+    "job_id": "b184788d-e193-4d76-9d4a-22127d1e0cfc"
+}

@@ -49,6 +49,7 @@ func ReviewWork(client *anthropic.Client, problem string, input json.RawMessage)
 	if err != nil {
 		return "", err
 	}
+	Usage.RecordReview()
 
 	var prompt strings.Builder
 	fmt.Fprintf(&prompt, "<original_problem>\n%s\n</original_problem>\n\n", problem)
@@ -81,6 +82,7 @@ func ReviewWork(client *anthropic.Client, problem string, input json.RawMessage)
 		if err != nil {
 			return "", fmt.Errorf("reviewer inference failed: %w", err)
 		}
+		Usage.RecordReviewer(message.Usage)
 		conversation = append(conversation, message.ToParam())
 
 		var review strings.Builder

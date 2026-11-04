@@ -13,3 +13,6 @@ PYTHONPATH=. harbor run \
   --agent go_agent:Clippy \
   -l 30
 
+
+# Report reward, turns, tokens and cost for the job that just ran
+python report.py --append results.md

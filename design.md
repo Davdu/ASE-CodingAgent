@@ -9,6 +9,10 @@ We also mad ethe agent implement a feature, where it logs conversations to the d
 
 In the last session where created the `create_file` tool, the agent managed to create a JS version of game of life, write 2 tests, and then iterate on the code once i saw that the tests failed. It also tested the program by running it, then in the end being satisfied with the game, it stopped.
 
+### Adding usage and cost tracking.
+
+We add usage and cost tracking and wire that up with Harbor so we can extract that information from the benchmark
+
 ## Benchmarking the base model
 
 ### Implementing Defensive output parsing for tool invocations
